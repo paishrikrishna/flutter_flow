@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "961407509508",
+    "project_id": "fitnessv1-f3d22",
+    "storage_bucket": "fitnessv1-f3d22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961407509508:android:66501e1d381ca375da8151",
+        "android_client_info": {
+          "package_name": "com.flutterflow.fitnessv1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "961407509508-iqjd11ipeou8kp0dcdba3dk580daupnp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdt6SrC3HEdbQ3FDonYczZ4VTRJZBYKL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "961407509508-iqjd11ipeou8kp0dcdba3dk580daupnp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "961407509508-uo0j0kc6t446mdomj92mabjq83dg9iht.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.fitnessv1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
