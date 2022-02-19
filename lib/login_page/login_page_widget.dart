@@ -7,6 +7,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_toggle_icon.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../login/login_widget.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -494,13 +495,27 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
-                      child: Text(
-                        'Click here to Log In',
-                        style: GoogleFonts.getFont(
-                          'Roboto',
-                          color: Color(0xFFFF7600),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
+                      child: InkWell(
+                        onTap: () async {
+                          await Navigator.pushAndRemoveUntil(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.bottomToTop,
+                              duration: Duration(milliseconds: 300),
+                              reverseDuration: Duration(milliseconds: 300),
+                              child: LoginWidget(),
+                            ),
+                            (r) => false,
+                          );
+                        },
+                        child: Text(
+                          'Click here to Log In',
+                          style: GoogleFonts.getFont(
+                            'Roboto',
+                            color: Color(0xFFFF7600),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                          ),
                         ),
                       ),
                     ),
