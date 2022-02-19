@@ -436,45 +436,51 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                                                               1,
                                                                               0),
                                                                           child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.end,
-                                                                            children: [
-                                                                              Container(
-                                                                                decoration: BoxDecoration(
-                                                                                  color: Colors.white,
-                                                                                ),
-                                                                                child: Text(
-                                                                                  'Valid Till',
-                                                                                  textAlign: TextAlign.center,
-                                                                                  style: GoogleFonts.getFont(
-                                                                                    'Roboto',
-                                                                                    color: Color(0xFF666666),
-                                                                                    fontWeight: FontWeight.normal,
-                                                                                    fontSize: 16,
+                                                                              Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0,
+                                                                                0,
+                                                                                5,
+                                                                                0),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              crossAxisAlignment: CrossAxisAlignment.end,
+                                                                              children: [
+                                                                                Container(
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: Colors.white,
                                                                                   ),
-                                                                                ),
-                                                                              ),
-                                                                              Container(
-                                                                                decoration: BoxDecoration(
-                                                                                  color: Colors.white,
-                                                                                ),
-                                                                                child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                                                                                   child: Text(
-                                                                                    columnMembershipsRecord.valid,
+                                                                                    'Valid Till',
+                                                                                    textAlign: TextAlign.center,
                                                                                     style: GoogleFonts.getFont(
                                                                                       'Roboto',
-                                                                                      color: Colors.black,
-                                                                                      fontWeight: FontWeight.w500,
+                                                                                      color: Color(0xFF666666),
+                                                                                      fontWeight: FontWeight.normal,
                                                                                       fontSize: 16,
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                            ],
+                                                                                Container(
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: Colors.white,
+                                                                                  ),
+                                                                                  child: Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                                                                                    child: Text(
+                                                                                      columnMembershipsRecord.valid,
+                                                                                      style: GoogleFonts.getFont(
+                                                                                        'Roboto',
+                                                                                        color: Colors.black,
+                                                                                        fontWeight: FontWeight.w500,
+                                                                                        fontSize: 16,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ],
@@ -488,40 +494,49 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                                       },
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(16, 16.51,
-                                                                16, 0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          'Recent Visits',
-                                                          style: GoogleFonts
-                                                              .getFont(
-                                                            'Roboto',
-                                                            color: Colors.black,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            fontSize: 16,
-                                                          ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16,
+                                                                    16.51,
+                                                                    16,
+                                                                    0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Text(
+                                                              'Recent Visits',
+                                                              style: GoogleFonts
+                                                                  .getFont(
+                                                                'Roboto',
+                                                                color: Colors
+                                                                    .black,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontSize: 16,
+                                                              ),
+                                                            ),
+                                                          ],
                                                         ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                16, 0, 0, 0),
-                                                    child: StreamBuilder<
-                                                        List<AttendanceRecord>>(
-                                                      stream:
-                                                          queryAttendanceRecord(
-                                                        queryBuilder: (attendanceRecord) =>
-                                                            attendanceRecord
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(16, 0,
+                                                                    0, 0),
+                                                        child: StreamBuilder<
+                                                            List<
+                                                                AttendanceRecord>>(
+                                                          stream:
+                                                              queryAttendanceRecord(
+                                                            queryBuilder: (attendanceRecord) => attendanceRecord
                                                                 .where('gym_id',
                                                                     isEqualTo:
                                                                         columnMembershipsRecord
@@ -529,154 +544,189 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                                                 .where('user',
                                                                     isEqualTo:
                                                                         FFAppState()
-                                                                            .mobile),
-                                                      ),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        // Customize what your widget looks like when it's loading.
-                                                        if (!snapshot.hasData) {
-                                                          return Center(
-                                                            child: SizedBox(
-                                                              width: 50,
-                                                              height: 50,
-                                                              child:
-                                                                  CircularProgressIndicator(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryColor,
-                                                              ),
-                                                            ),
-                                                          );
-                                                        }
-                                                        List<AttendanceRecord>
-                                                            columnAttendanceRecordList =
-                                                            snapshot.data;
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: List.generate(
-                                                              columnAttendanceRecordList
-                                                                  .length,
-                                                              (columnIndex) {
-                                                            final columnAttendanceRecord =
-                                                                columnAttendanceRecordList[
-                                                                    columnIndex];
-                                                            return Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
+                                                                            .mobile)
+                                                                .where('date',
+                                                                    isLessThanOrEqualTo:
+                                                                        columnMembershipsRecord
+                                                                            .valid)
+                                                                .where('date',
+                                                                    isGreaterThanOrEqualTo:
+                                                                        columnMembershipsRecord
+                                                                            .validFrom),
+                                                          ),
+                                                          builder: (context,
+                                                              snapshot) {
+                                                            // Customize what your widget looks like when it's loading.
+                                                            if (!snapshot
+                                                                .hasData) {
+                                                              return Center(
+                                                                child: SizedBox(
+                                                                  width: 50,
+                                                                  height: 50,
+                                                                  child:
+                                                                      CircularProgressIndicator(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryColor,
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            }
+                                                            List<AttendanceRecord>
+                                                                columnAttendanceRecordList =
+                                                                snapshot.data;
+                                                            return Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: List.generate(
+                                                                  columnAttendanceRecordList
+                                                                      .length,
+                                                                  (columnIndex) {
+                                                                final columnAttendanceRecord =
+                                                                    columnAttendanceRecordList[
+                                                                        columnIndex];
+                                                                return Padding(
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0,
                                                                           16,
                                                                           0,
                                                                           0),
-                                                              child: Container(
-                                                                width: MediaQuery.of(
-                                                                            context)
-                                                                        .size
-                                                                        .width *
-                                                                    3.28,
-                                                                height: 19,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: Colors
-                                                                      .white,
-                                                                ),
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        -1, 0),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Container(
-                                                                      width:
-                                                                          328,
-                                                                      height:
-                                                                          20,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Colors
-                                                                            .white,
-                                                                        shape: BoxShape
-                                                                            .rectangle,
-                                                                        border:
-                                                                            Border.all(
-                                                                          color:
-                                                                              Colors.white,
+                                                                  child:
+                                                                      Container(
+                                                                    width: MediaQuery.of(context)
+                                                                            .size
+                                                                            .width *
+                                                                        3.28,
+                                                                    height: 19,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            -1,
+                                                                            0),
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Container(
                                                                           width:
-                                                                              0,
-                                                                        ),
-                                                                      ),
-                                                                      alignment:
-                                                                          AlignmentDirectional(
+                                                                              328,
+                                                                          height:
+                                                                              20,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                Colors.white,
+                                                                            shape:
+                                                                                BoxShape.rectangle,
+                                                                            border:
+                                                                                Border.all(
+                                                                              color: Colors.white,
+                                                                              width: 0,
+                                                                            ),
+                                                                          ),
+                                                                          alignment: AlignmentDirectional(
                                                                               -1,
                                                                               0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Text(
-                                                                            columnAttendanceRecord.date,
-                                                                            style:
-                                                                                GoogleFonts.getFont(
-                                                                              'Roboto',
-                                                                              color: Colors.black,
-                                                                              fontSize: 16,
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                24,
-                                                                                0,
-                                                                                0,
-                                                                                0),
-                                                                            child:
-                                                                                Text(
-                                                                              columnAttendanceRecord.day,
-                                                                              style: GoogleFonts.getFont(
-                                                                                'Roboto',
-                                                                                color: Colors.black,
-                                                                                fontSize: 16,
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Text(
+                                                                                valueOrDefault<String>(
+                                                                                  columnAttendanceRecord.date,
+                                                                                  'No Visits So Far',
+                                                                                ),
+                                                                                style: GoogleFonts.getFont(
+                                                                                  'Roboto',
+                                                                                  color: Colors.black,
+                                                                                  fontSize: 16,
+                                                                                ),
                                                                               ),
-                                                                            ),
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                                                                                child: Text(
+                                                                                  columnAttendanceRecord.day,
+                                                                                  style: GoogleFonts.getFont(
+                                                                                    'Roboto',
+                                                                                    color: Colors.black,
+                                                                                    fontSize: 16,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                              Text(
+                                                                                ',',
+                                                                                style: GoogleFonts.getFont(
+                                                                                  'Roboto',
+                                                                                  color: Colors.black,
+                                                                                  fontSize: 16,
+                                                                                ),
+                                                                              ),
+                                                                              Text(
+                                                                                columnAttendanceRecord.time,
+                                                                                style: GoogleFonts.getFont(
+                                                                                  'Roboto',
+                                                                                  color: Colors.black,
+                                                                                  fontSize: 16,
+                                                                                ),
+                                                                              ),
+                                                                            ],
                                                                           ),
-                                                                          Text(
-                                                                            ',',
-                                                                            style:
-                                                                                GoogleFonts.getFont(
-                                                                              'Roboto',
-                                                                              color: Colors.black,
-                                                                              fontSize: 16,
-                                                                            ),
-                                                                          ),
-                                                                          Text(
-                                                                            columnAttendanceRecord.time,
-                                                                            style:
-                                                                                GoogleFonts.getFont(
-                                                                              'Roboto',
-                                                                              color: Colors.black,
-                                                                              fontSize: 16,
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
+                                                                        ),
+                                                                      ],
                                                                     ),
-                                                                  ],
-                                                                ),
-                                                              ),
+                                                                  ),
+                                                                );
+                                                              }),
                                                             );
-                                                          }),
-                                                        );
-                                                      },
-                                                    ),
+                                                          },
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(16, 8,
+                                                                    16, 8),
+                                                        child: Container(
+                                                          width: MediaQuery.of(
+                                                                  context)
+                                                              .size
+                                                              .width,
+                                                          height: 1,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xFF999999),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        50),
+                                                            border: Border.all(
+                                                              color: Color(
+                                                                  0xFFCCCCCC),
+                                                              width: 5,
+                                                            ),
+                                                          ),
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  -1, -1),
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ],
                                               ),

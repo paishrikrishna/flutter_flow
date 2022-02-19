@@ -22,13 +22,22 @@ abstract class MembershipsRecord
   String get valid;
 
   @nullable
+  bool get latest;
+
+  @nullable
+  @BuiltValueField(wireName: 'valid_from')
+  String get validFrom;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
   static void _initializeBuilder(MembershipsRecordBuilder builder) => builder
     ..user = ''
     ..gymId = ''
-    ..valid = '';
+    ..valid = ''
+    ..latest = false
+    ..validFrom = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('memberships');
@@ -55,10 +64,14 @@ Map<String, dynamic> createMembershipsRecordData({
   String user,
   String gymId,
   String valid,
+  bool latest,
+  String validFrom,
 }) =>
     serializers.toFirestore(
         MembershipsRecord.serializer,
         MembershipsRecord((m) => m
           ..user = user
           ..gymId = gymId
-          ..valid = valid));
+          ..valid = valid
+          ..latest = latest
+          ..validFrom = validFrom));
