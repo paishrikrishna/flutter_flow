@@ -36,12 +36,20 @@ class _LoginWidgetState extends State<LoginWidget> {
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(16, 30, 16, 0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text(
+                  'Enter Your Mobile Number',
+                  style: GoogleFonts.getFont(
+                    'Roboto',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                   child: Container(

@@ -9,6 +9,7 @@ import 'flutter_flow/internationalization.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_page/home_page_widget.dart';
 import 'attendance/attendance_widget.dart';
+import 'offers_page/offers_page_widget.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -88,6 +89,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'HomePage': HomePageWidget(),
       'attendance': AttendanceWidget(),
+      'offers_page': OffersPageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
@@ -145,6 +147,29 @@ class _NavBarPageState extends State<NavBarPage> {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 1
+                        ? Color(0xFFFF7600)
+                        : Color(0xFF999999),
+                    fontSize: 11.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.local_offer_sharp,
+                  color:
+                      currentIndex == 2 ? Color(0xFFFF7600) : Color(0xFF999999),
+                  size: 24,
+                ),
+                Text(
+                  'Offers',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 2
                         ? Color(0xFFFF7600)
                         : Color(0xFF999999),
                     fontSize: 11.0,

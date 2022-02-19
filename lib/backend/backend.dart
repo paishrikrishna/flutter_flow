@@ -9,6 +9,8 @@ import 'schema/user_record.dart';
 import 'schema/memberships_record.dart';
 import 'schema/attendance_record.dart';
 import 'schema/gym_record.dart';
+import 'schema/offers_category_record.dart';
+import 'schema/offers_record.dart';
 import 'schema/serializers.dart';
 
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -21,6 +23,8 @@ export 'schema/user_record.dart';
 export 'schema/memberships_record.dart';
 export 'schema/attendance_record.dart';
 export 'schema/gym_record.dart';
+export 'schema/offers_category_record.dart';
+export 'schema/offers_record.dart';
 
 /// Functions to query BlogCategoriesRecords (as a Stream and as a Future).
 Stream<List<BlogCategoriesRecord>> queryBlogCategoriesRecord(
@@ -114,6 +118,38 @@ Future<List<GymRecord>> queryGymRecordOnce(
         int limit = -1,
         bool singleRecord = false}) =>
     queryCollectionOnce(GymRecord.collection, GymRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+/// Functions to query OffersCategoryRecords (as a Stream and as a Future).
+Stream<List<OffersCategoryRecord>> queryOffersCategoryRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(
+        OffersCategoryRecord.collection, OffersCategoryRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<List<OffersCategoryRecord>> queryOffersCategoryRecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(
+        OffersCategoryRecord.collection, OffersCategoryRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+/// Functions to query OffersRecords (as a Stream and as a Future).
+Stream<List<OffersRecord>> queryOffersRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(OffersRecord.collection, OffersRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<List<OffersRecord>> queryOffersRecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(OffersRecord.collection, OffersRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
 Stream<List<T>> queryCollection<T>(

@@ -1,22 +1,3 @@
 {
-  "indexes": [
-    {
-      "collectionGroup": "attendance",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "gym_id",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "user",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "date",
-          "order": "ASCENDING"
-        }
-      ]
-    }
-  ]
+  "indexes": []
 }
