@@ -115,73 +115,6 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          if (!(functions.inlist(
-                                  attendanceMembershipsRecordList
-                                      .map((e) => e.user)
-                                      .toList(),
-                                  FFAppState().mobile)) ??
-                              true)
-                            Container(
-                              width: MediaQuery.of(context).size.width,
-                              height: MediaQuery.of(context).size.height * 0.76,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                              ),
-                              alignment: AlignmentDirectional(0, 0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Ask your gym admin to scan this',
-                                    textAlign: TextAlign.center,
-                                    style: GoogleFonts.getFont(
-                                      'Roboto',
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 16, 0, 0),
-                                    child: Image.network(
-                                      functions
-                                          .qrgenerator(FFAppState().mobile),
-                                      width: 278,
-                                      height: 278,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 38, 0, 0),
-                                    child: Text(
-                                      'You have no active membership?',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.black,
-                                          ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 8, 0, 0),
-                                    child: Text(
-                                      'Click here to find gyms nearby',
-                                      style: GoogleFonts.getFont(
-                                        'Roboto',
-                                        color: Color(0xFFFF7600),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
                           if (functions.inlist(
                                   attendanceMembershipsRecordList
                                       .map((e) => e.user)
@@ -691,7 +624,7 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                                                             MainAxisSize.max,
                                                                         children: [
                                                                           Text(
-                                                                            '15 Feb',
+                                                                            columnAttendanceRecord.date,
                                                                             style:
                                                                                 GoogleFonts.getFont(
                                                                               'Roboto',
@@ -707,7 +640,7 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                                                                 0),
                                                                             child:
                                                                                 Text(
-                                                                              'Monday',
+                                                                              columnAttendanceRecord.day,
                                                                               style: GoogleFonts.getFont(
                                                                                 'Roboto',
                                                                                 color: Colors.black,
@@ -725,7 +658,7 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                                                             ),
                                                                           ),
                                                                           Text(
-                                                                            '8:30pm ',
+                                                                            columnAttendanceRecord.time,
                                                                             style:
                                                                                 GoogleFonts.getFont(
                                                                               'Roboto',
@@ -780,8 +713,8 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                               day: dateTimeFormat(
                                                   'EEEE', getCurrentTimestamp),
                                               gymId: attendance,
-                                              time: dateTimeFormat('relative',
-                                                  getCurrentTimestamp),
+                                              time: dateTimeFormat(
+                                                  'jms', getCurrentTimestamp),
                                               user: FFAppState().mobile,
                                             );
                                             await AttendanceRecord.collection
@@ -831,6 +764,73 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                             ],
                                           ),
                                         ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          if (!(functions.inlist(
+                                  attendanceMembershipsRecordList
+                                      .map((e) => e.user)
+                                      .toList(),
+                                  FFAppState().mobile)) ??
+                              true)
+                            Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: MediaQuery.of(context).size.height * 0.76,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                              ),
+                              alignment: AlignmentDirectional(0, 0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Ask your gym admin to scan this',
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.getFont(
+                                      'Roboto',
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 16, 0, 0),
+                                    child: Image.network(
+                                      functions
+                                          .qrgenerator(FFAppState().mobile),
+                                      width: 278,
+                                      height: 278,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 38, 0, 0),
+                                    child: Text(
+                                      'You have no active membership?',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Colors.black,
+                                          ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 8, 0, 0),
+                                    child: Text(
+                                      'Click here to find gyms nearby',
+                                      style: GoogleFonts.getFont(
+                                        'Roboto',
+                                        color: Color(0xFFFF7600),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14,
                                       ),
                                     ),
                                   ),
