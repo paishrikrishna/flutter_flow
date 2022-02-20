@@ -8,6 +8,7 @@ import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_page/home_page_widget.dart';
+import 'near_by/near_by_widget.dart';
 import 'offers_page/offers_page_widget.dart';
 import 'attendance/attendance_widget.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
@@ -88,6 +89,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomePage': HomePageWidget(),
+      'near_by': NearByWidget(),
       'offers_page': OffersPageWidget(),
       'attendance': AttendanceWidget(),
     };
@@ -137,13 +139,13 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.local_offer_sharp,
+                  Icons.location_on,
                   color:
                       currentIndex == 1 ? Color(0xFFFF7600) : Color(0xFF999999),
                   size: 24,
                 ),
                 Text(
-                  'Offers',
+                  'Nearby Gyms',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 1
@@ -160,16 +162,39 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.person_rounded,
+                  Icons.local_offer_sharp,
                   color:
                       currentIndex == 2 ? Color(0xFFFF7600) : Color(0xFF999999),
+                  size: 24,
+                ),
+                Text(
+                  'Offers',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 2
+                        ? Color(0xFFFF7600)
+                        : Color(0xFF999999),
+                    fontSize: 11.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.person_rounded,
+                  color:
+                      currentIndex == 3 ? Color(0xFFFF7600) : Color(0xFF999999),
                   size: 24,
                 ),
                 Text(
                   'Attendance',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color: currentIndex == 2
+                    color: currentIndex == 3
                         ? Color(0xFFFF7600)
                         : Color(0xFF999999),
                     fontSize: 11.0,

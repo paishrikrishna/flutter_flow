@@ -16,3 +16,16 @@ class OtpverificationCall {
     );
   }
 }
+
+class PhonecallCall {
+  static Future<ApiCallResponse> call() {
+    return ApiManager.instance.makeApiCall(
+      callName: 'phonecall',
+      apiUrl: 'tel:9833544346',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+    );
+  }
+}

@@ -23,6 +23,9 @@ abstract class GymRecord implements Built<GymRecord, GymRecordBuilder> {
   String get thumbnail;
 
   @nullable
+  BuiltList<String> get images;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -30,7 +33,8 @@ abstract class GymRecord implements Built<GymRecord, GymRecordBuilder> {
     ..area = ''
     ..gymId = ''
     ..name = ''
-    ..thumbnail = '';
+    ..thumbnail = ''
+    ..images = ListBuilder();
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('gym');
@@ -64,4 +68,5 @@ Map<String, dynamic> createGymRecordData({
           ..area = area
           ..gymId = gymId
           ..name = name
-          ..thumbnail = thumbnail));
+          ..thumbnail = thumbnail
+          ..images = null));
