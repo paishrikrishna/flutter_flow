@@ -2,7 +2,6 @@ import '../backend/api_requests/api_calls.dart';
 import '../backend/backend.dart';
 import '../components/otp_veri_widget.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_toggle_icon.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -225,27 +224,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           height: 48,
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 1,
-                            ),
+                            shape: BoxShape.rectangle,
                           ),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 30,
-                                buttonSize: 60,
-                                icon: Icon(
-                                  Icons.local_phone,
-                                  color: Color(0xFF999999),
-                                  size: 30,
-                                ),
-                                onPressed: () {
-                                  print('IconButton pressed ...');
-                                },
-                              ),
                               Expanded(
                                 child: TextFormField(
                                   controller: textController3,
@@ -260,17 +243,21 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Colors.white,
+                                        color: Colors.black,
                                         width: 0,
                                       ),
                                       borderRadius: BorderRadius.circular(0),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Colors.white,
+                                        color: Colors.black,
                                         width: 0,
                                       ),
                                       borderRadius: BorderRadius.circular(0),
+                                    ),
+                                    prefixIcon: Icon(
+                                      Icons.phone_rounded,
+                                      color: Color(0xFF999999),
                                     ),
                                   ),
                                   style: GoogleFonts.getFont(
@@ -364,6 +351,28 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           );
                         }
                         if ((FFAppState().termsconditions) == true) {
+                          await Future.delayed(const Duration(milliseconds: 0));
+                        } else {
+                          return;
+                        }
+                        if ((datePicked) >= (getCurrentTimestamp)) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                'Invalid Date Of Birth',
+                                style: GoogleFonts.getFont(
+                                  'Roboto',
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              duration: Duration(milliseconds: 4000),
+                              backgroundColor: Color(0xFF999999),
+                            ),
+                          );
+                        }
+                        if ((datePicked) < (getCurrentTimestamp)) {
                           await Future.delayed(const Duration(milliseconds: 0));
                         } else {
                           return;
