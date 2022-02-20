@@ -1,7 +1,6 @@
 import '../backend/api_requests/api_calls.dart';
 import '../backend/backend.dart';
 import '../components/otp_veri_copy_widget.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -57,29 +56,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                     height: 46,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1,
-                      ),
                     ),
                     alignment: AlignmentDirectional(0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          buttonSize: 60,
-                          icon: Icon(
-                            Icons.local_phone,
-                            color: Color(0xFF999999),
-                            size: 30,
-                          ),
-                          onPressed: () {
-                            print('IconButton pressed ...');
-                          },
-                        ),
                         Expanded(
                           child: TextFormField(
                             controller: textController,
@@ -94,17 +76,21 @@ class _LoginWidgetState extends State<LoginWidget> {
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   width: 0,
                                 ),
                                 borderRadius: BorderRadius.circular(0),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   width: 0,
                                 ),
                                 borderRadius: BorderRadius.circular(0),
+                              ),
+                              prefixIcon: Icon(
+                                Icons.phone_rounded,
+                                color: Color(0xFF999999),
                               ),
                             ),
                             style: GoogleFonts.getFont(
